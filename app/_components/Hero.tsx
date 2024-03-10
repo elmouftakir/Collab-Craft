@@ -10,7 +10,7 @@ function Hero() {
         >
           Documents & diagrams & Flowcharts
   
-          <span className="sm:block"> for engineering teams. </span>
+          <strong className="sm:block"> for engineering teams. </strong>
         </h1>
   
         <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
@@ -19,18 +19,12 @@ function Hero() {
   
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <a
-            className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-            href="#"
-          >
-            Get Started
-          </a>
-  
-          <a
-            className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+            className="block w-full rounded border bg-teal-600 bg-teal-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
             href="#"
           >
             Learn More
           </a>
+  
         </div>
       </div>
     </div>
