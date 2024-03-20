@@ -5,13 +5,7 @@ import { useQuery } from 'convex/react';
 import React, { useEffect } from 'react';
 import { useClient } from 'next/client';
 
-// Define the Dashboard component
-function Dashboard() {
-  const { user }: any = useKindeBrowserClient();
 
-
-  useEffect(() => {
-    if (user) {
 
  
       });
