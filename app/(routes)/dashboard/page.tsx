@@ -13,7 +13,7 @@ function Dashboard() {
   useEffect(() => {
     if (user) {
 
-        console.log(userData);
+ 
       });
     }
   }, [user, getUser]);
