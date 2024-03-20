@@ -5,10 +5,3 @@ import { useQuery } from 'convex/react';
 import React, { useEffect } from 'react';
 import { useClient } from 'next/client';
 
-
-
- 
-
-
-// Mark the Dashboard component as a Client Component
-export default useClient(Dashboard);
