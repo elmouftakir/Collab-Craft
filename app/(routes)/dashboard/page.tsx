@@ -12,7 +12,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (user) {
-      getUser().then((userData: any) => {
+
         console.log(userData);
       });
     }
