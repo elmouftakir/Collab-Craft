@@ -8,7 +8,7 @@ import { useClient } from 'next/client';
 // Define the Dashboard component
 function Dashboard() {
   const { user }: any = useKindeBrowserClient();
-  const getUser = useQuery(api.user.getUser, { email: user?.email });
+
 
   useEffect(() => {
     if (user) {
