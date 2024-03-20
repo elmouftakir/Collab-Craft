@@ -7,9 +7,9 @@ import React, { useEffect } from 'react'
 
 function Dashboard() {
   const convex = useConvex();
-  const {user=}:any=useKindeBrowserClient();
+  const {user}:any=useKindeBrowserClient();
 
-  const createUser = useMutation(api.user.createUser);
+  const getUser=useMutation(api.user.getUser);
 
   useEffect(() => {
     if (user) {
@@ -34,16 +34,5 @@ function Dashboard() {
   // const getUser = useQuery(api.user.getUser, { email: user?.email });
 
   return (
-    <div className='p-8'>
-      <Header />
-      <FileList />
-      <AdBanner
-        data-ad-slot="4796371341"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
-    </div>
-  );
-}
 
 export default Dashboard;
