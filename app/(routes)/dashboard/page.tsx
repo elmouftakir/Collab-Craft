@@ -8,18 +8,7 @@ import { useClient } from 'next/client';
 
 
  
-      });
-    }
-  }, [user, getUser]);
 
-  return (
-    <div>
-      <Button>
-        <LogoutLink>Logout</LogoutLink>
-      </Button>
-    </div>
-  );
-}
 
 // Mark the Dashboard component as a Client Component
 export default useClient(Dashboard);
