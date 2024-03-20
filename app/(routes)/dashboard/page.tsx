@@ -7,7 +7,7 @@ import React, { useEffect } from 'react'
 
 function Dashboard() {
   const convex = useConvex();
-  const { user = {} }: any = useKindeBrowserClient();
+  const {user=}:any=useKindeBrowserClient();
 
   const createUser = useMutation(api.user.createUser);
 
