@@ -32,6 +32,7 @@ const createUser=useMutation(api.user.createUser);
         console.log(resp)
       })
     }
+  };
 
   return (
     <div>
