@@ -5,7 +5,7 @@ import { useConvex } from 'convex/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import SideNav from './_components/SideNav';
-import { FileListContext } from '@/app/_context/FilesListContext';
+//import { FileListContext } from '@/app/_context/FilesListContext';
 
 function DashboardLayout(
     {
