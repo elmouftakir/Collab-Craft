@@ -58,10 +58,10 @@ function SideNav() {
       setActiveTeamInfo={(activeTeam:TEAM)=>setActiveTeam(activeTeam)}/>
       </div>
     
-     <div>
+    <div>
       <SideNavBottomSection
-      totalFiles={totalFiles}
-      onFileCreate={onFileCreate}
+      //totalFiles={totalFiles}
+      //onFileCreate={onFileCreate}
       />
      </div>
     </div>
