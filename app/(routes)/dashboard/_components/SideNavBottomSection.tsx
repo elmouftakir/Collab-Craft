@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Archive, Flag, Github } from 'lucide-react'
 import React, { useState } from 'react'
 import {
-  Dialog,
+ Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
