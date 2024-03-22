@@ -43,7 +43,8 @@ function SideNav() {
   const getFiles=async()=>{
     const result=await convex.query(api.files.getFiles,{teamId:activeTeam?._id});
     console.log(result);
-    //setTotalFiles(result?.length)
+    //vip
+    setTotalFiles(result?.length)
   }
 
   return (
@@ -60,7 +61,8 @@ function SideNav() {
     
     <div>
       <SideNavBottomSection
-      //totalFiles={totalFiles}
+      //vip
+      totalFiles={totalFiles}
       onFileCreate={onFileCreate}
       />
      </div>
