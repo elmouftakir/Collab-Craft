@@ -38,7 +38,7 @@ function SideNavBottomSection({onFileCreate,totalFiles}:any) {
   const [fileInput,setFileInput]=useState('');
   return (
     <div>
-      {menuList.map((menu,index)=>(
+      {menuList.map((<menu></menu>,index)=>(
         <h2 key={index} className='flex gap-2 p-1 px-2 text-[14px] 
         hover:bg-gray-100 rounded-md cursor-pointer'>
         </h2>
