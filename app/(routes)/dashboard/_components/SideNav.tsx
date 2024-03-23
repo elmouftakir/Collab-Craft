@@ -17,7 +17,7 @@ function SideNav() {
   const [activeTeam,setActiveTeam]=useState<TEAM|any>();
   const convex=useConvex();
   const [totalFiles,setTotalFiles]=useState<Number>();
-  const {fileList_,setFileList_}:=useContext(FileListContext);
+  const {fileList_,setFileList_}=useContext(FileListContext);
   useEffect(()=>{
     activeTeam&&getFiles();
   },[activeTeam])
