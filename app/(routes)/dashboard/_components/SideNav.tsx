@@ -37,7 +37,7 @@ function SideNav() {
         toast('File created successfully!.')
       }
     },(e)=>{
-      toast('Error while creating file.')
+      toast('Error while creating file')
 
     })
   }
