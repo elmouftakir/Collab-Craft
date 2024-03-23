@@ -1,12 +1,12 @@
-import { Archive, ChevronDown, Flag, Github } from 'lucide-react'
-import Image from 'next/image'
+//import { Archive, ChevronDown, Flag, Github } from 'lucide-react'
+//import Image from 'next/image'
 import React, { useContext, useEffect, useState } from 'react'
 import SideNavTopSection, { TEAM } from './SideNavTopSection'
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
 import SideNavBottomSection from './SideNavBottomSection'
 import { useConvex, useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
-import { toast } from 'sonner'
+import { Toaster, toast } from 'sonner'
 import { FileListContext } from '@/app/_context/FilesListContext'
 
 
@@ -34,10 +34,10 @@ function SideNav() {
       if(resp)
       {
         getFiles();
-        toast('File created successfully!')
+        Toast('File created successfully!')
       }
     },(e)=>{
-      toast('Error while creating file')
+      Toast('Error while creating file')
 
     })
   }
