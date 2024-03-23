@@ -12,6 +12,7 @@
     "@editorjs/checklist": "^1.6.0",
     "@editorjs/editorjs": "^2.29.1",
     "@editorjs/header": "^2.8.1",
+    "@editorjs/image": "^2.9.0",
     "@editorjs/list": "^1.9.0",
     "@kinde-oss/kinde-auth-nextjs": "^2.1.15",
     "@radix-ui/react-dialog": "^1.0.5",
