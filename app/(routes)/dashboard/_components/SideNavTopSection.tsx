@@ -106,7 +106,7 @@ function SideNavTopSection({user,setActiveTeamInfo}:any) {
                         p-2 hover:bg-gray-100 rounded-lg cursor-pointer text-sm'>
                             <LogOut className='h-4 w-4'/>
                             Logout</h2>
-                        </LogoutLink>
+                    </LogoutLink>
                 </div>
                 <Separator className='mt-2 bg-slate-100'/>
                 {/* User Info Section  */}
