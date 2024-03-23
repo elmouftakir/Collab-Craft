@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Archive, Flag, Github } from 'lucide-react'
+//import { Archive, Flag, Github } from 'lucide-react'
 import React, { useState } from 'react'
 import {
   Dialog,
@@ -16,7 +16,7 @@ import Constant from '@/app/_constant/Constant'
 import PricingDialog from './PricingDialog'
 function SideNavBottomSection({onFileCreate,totalFiles}:any) {
   const menuList=[
-    {
+   {/* {
       id:1,
       name:'Getting Started',
       icon:Flag,
@@ -34,15 +34,14 @@ function SideNavBottomSection({onFileCreate,totalFiles}:any) {
       icon:Archive,
       path:''
     }
-  ]
+  ]*/}]
   const [fileInput,setFileInput]=useState('');
   return (
     <div>
       {menuList.map((menu,index)=>(
         <h2 key={index} className='flex gap-2 p-1 px-2 text-[14px] 
         hover:bg-gray-100 rounded-md cursor-pointer'>
-          <menu.icon className='h-5 w-5'/>
-          {menu.name}</h2>
+        </h2>
       ))}
 
       {/* Add New File Button  */}
