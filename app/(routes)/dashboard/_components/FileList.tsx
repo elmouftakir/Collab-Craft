@@ -32,7 +32,7 @@ function FileList() {
       await deleteFile(fileId);
       
       // After successful deletion, update the fileList state to re-render the list without the deleted file
-      setFileList(prevFileList => prevFileList.filter(file => file._id !== fileId));
+      setFileList((prevFileList: any[]) => prevFileList.filter(file => file._id !== fileId));
       
       // Add a confirmation or alert message to the user after successful deletion
       alert('File deleted successfully');
@@ -107,4 +107,8 @@ function FileList() {
 }
 
 export default FileList;
+
+function deleteFile(fileId: string) {
+  throw new Error('Function not implemented.');
+}
 
