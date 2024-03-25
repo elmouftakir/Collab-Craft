@@ -4,15 +4,8 @@ import { Archive, Delete, MoreHorizontal } from 'lucide-react';
 import moment from 'moment';
 import Image from 'next/image';
 import React, { useContext, useEffect, useState } from 'react';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useRouter } from 'next/navigation';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import * as router_1 from 'next/router'; // Change from 'next/navigation' to 'next/router'
 
 export interface FILE {
   archive: boolean,
@@ -29,10 +22,27 @@ function FileList() {
   const { fileList_, setFileList_ } = useContext(FileListContext);
   const [fileList, setFileList] = useState<any>();
   const { user }: any = useKindeBrowserClient();
-  const router = useRouter();
+  const router = router_1.useRouter();
 
-  const handleDelete = () => {
-    // Add logic for handling delete operation
+  // Define handleDelete function outside of the component
+  const handleDelete = async (fileId: string) => {
+    try {
+      // Delete the file using the file ID
+      // Assume deleteFile is a function that handles file deletion
+      await deleteFile(fileId);
+      
+      // After successful deletion, update the fileList state to re-render the list without the deleted file
+      setFileList(prevFileList => prevFileList.filter(file => file._id !== fileId));
+      
+      // Add a confirmation or alert message to the user after successful deletion
+      alert('File deleted successfully');
+    } catch (error) {
+      // If an error occurs during the deletion process, handle the error here
+      console.error('An error occurred while deleting the file:', error);
+      
+      // You can also display an error message to the user to explain why the deletion process failed
+      alert('An error occurred while deleting the file, please try again.');
+    }
   };
 
   useEffect(() => {
@@ -80,7 +90,8 @@ function FileList() {
                       <DropdownMenuItem className='gap-3'>
                         <Archive className='h-4 w-4' /> Archive
                       </DropdownMenuItem>
-                      <DropdownMenuItem className='gap-3' onClick={handleDelete}>
+                      {/* Pass the fileId to handleDelete function */}
+                      <DropdownMenuItem className='gap-3' onClick={() => handleDelete(file._id)}>
                         <Delete className='h-4 w-4' /> Delete
                       </DropdownMenuItem>
                     </DropdownMenuContent>
@@ -96,3 +107,4 @@ function FileList() {
 }
 
 export default FileList;
+

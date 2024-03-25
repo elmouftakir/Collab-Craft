@@ -1,5 +1,6 @@
 import {v} from 'convex/values';
 import { mutation, query } from './_generated/server';
+import { File } from 'lucide-react';
 
 export const createFile=mutation({
     args:{
@@ -63,21 +64,3 @@ export const getFileById=query({
         return result;
     },
 })
-
-import { deleteFile } from '@/services/fileService';
-
-const handleDelete = async (fileId: string) => {
-  try {
-    // Delete the file using the file ID
-    await deleteFile(fileId);
-    // After successful deletion, update the fileList state to re-render the list without the deleted file
-    setFileList(prevFileList => prevFileList.filter(file => file._id !== fileId));
-    // Add a confirmation or alert message to the user after successful deletion
-    alert('File deleted successfully');
-  } catch (error) {
-    // If an error occurs during the deletion process, handle the error here
-    console.error('An error occurred while deleting the file:', error);
-    // You can also display an error message to the user to explain why the deletion process failed
-    alert('An error occurred while deleting the file, please try again.');
-  }
-};
