@@ -68,16 +68,16 @@ import { deleteFile } from '@/services/fileService';
 
 const handleDelete = async (fileId: string) => {
   try {
-    // قم بحذف الملف باستخدام معرف الفايل (fileId)
+    // Delete the file using the file ID
     await deleteFile(fileId);
-    // بعد حذف الملف بنجاح، قم بتحديث حالة fileList لإعادة تقديم القائمة بدون الملف المحذوف
+    // After successful deletion, update the fileList state to re-render the list without the deleted file
     setFileList(prevFileList => prevFileList.filter(file => file._id !== fileId));
-    // أضف رسالة تأكيد أو تنبيه للمستخدم بعد حذف الملف بنجاح
-    alert('تم حذف الملف بنجاح');
+    // Add a confirmation or alert message to the user after successful deletion
+    alert('File deleted successfully');
   } catch (error) {
-    // في حال حدوث خطأ أثناء عملية الحذف، يمكنك معالجة الخطأ هنا
-    console.error('حدث خطأ أثناء حذف الملف:', error);
-    // يمكنك أيضًا إظهار رسالة خطأ للمستخدم لتوضيح سبب عدم نجاح عملية الحذف
-    alert('حدث خطأ أثناء حذف الملف، يرجى المحاولة مرة أخرى.');
+    // If an error occurs during the deletion process, handle the error here
+    console.error('An error occurred while deleting the file:', error);
+    // You can also display an error message to the user to explain why the deletion process failed
+    alert('An error occurred while deleting the file, please try again.');
   }
 };
