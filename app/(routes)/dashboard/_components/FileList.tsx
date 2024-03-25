@@ -1,6 +1,6 @@
 import { FileListContext } from '@/app/_context/FilesListContext'
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
-import { Archive, MoreHorizontal } from 'lucide-react';
+import { Archive, Delete, MoreHorizontal } from 'lucide-react';
 import moment from 'moment';
 import Image from 'next/image';
 import React, { useContext, useEffect, useState } from 'react'
@@ -30,6 +30,9 @@ function FileList() {
   const [fileList,setFileList]=useState<any>();
   const {user}:any=useKindeBrowserClient();
   const router=useRouter();
+  const handeleclick= ()=> {
+
+  }
   useEffect(()=>{
     fileList_&&setFileList(fileList_);
     console.log(fileList_);
@@ -81,6 +84,7 @@ function FileList() {
    
     <DropdownMenuItem className='gap-3'>
        <Archive className='h-4 w-4'/> Archive</DropdownMenuItem>
+       <Delete className='h-4 w-4'/> onClick={handeleclick} Delete</DropdownMenuItem>
    
   </DropdownMenuContent>
 </DropdownMenu>
