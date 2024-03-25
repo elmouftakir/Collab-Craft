@@ -5,7 +5,7 @@ import moment from 'moment';
 import Image from 'next/image';
 import React, { useContext, useEffect, useState } from 'react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import * as router_1 from 'next/router'; // Change from 'next/navigation' to 'next/router'
+import  from './(routes)/dashboard/_components/FileList'; // Change from 'next/navigation' to 'next/router'
 
 export interface FILE {
   archive: boolean,
