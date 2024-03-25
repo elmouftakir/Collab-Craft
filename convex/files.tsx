@@ -63,3 +63,21 @@ export const getFileById=query({
         return result;
     },
 })
+
+import { deleteFile } from '@/services/fileService';
+
+const handleDelete = async (fileId: string) => {
+  try {
+    // قم بحذف الملف باستخدام معرف الفايل (fileId)
+    await deleteFile(fileId);
+    // بعد حذف الملف بنجاح، قم بتحديث حالة fileList لإعادة تقديم القائمة بدون الملف المحذوف
+    setFileList(prevFileList => prevFileList.filter(file => file._id !== fileId));
+    // أضف رسالة تأكيد أو تنبيه للمستخدم بعد حذف الملف بنجاح
+    alert('تم حذف الملف بنجاح');
+  } catch (error) {
+    // في حال حدوث خطأ أثناء عملية الحذف، يمكنك معالجة الخطأ هنا
+    console.error('حدث خطأ أثناء حذف الملف:', error);
+    // يمكنك أيضًا إظهار رسالة خطأ للمستخدم لتوضيح سبب عدم نجاح عملية الحذف
+    alert('حدث خطأ أثناء حذف الملف، يرجى المحاولة مرة أخرى.');
+  }
+};
