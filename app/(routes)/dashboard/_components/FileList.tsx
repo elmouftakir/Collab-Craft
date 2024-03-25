@@ -5,7 +5,7 @@ import moment from 'moment';
 import Image from 'next/image';
 import React, { useContext, useEffect, useState } from 'react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import  from './(routes)/dashboard/_components/FileList'; // Change from 'next/navigation' to 'next/router'
+import * as router_1 from 'next/router'; // Change from 'next/navigation' to 'next/router'
 
 export interface FILE {
   archive: boolean,
@@ -32,7 +32,7 @@ function FileList() {
       await deleteFile(fileId);
       
       // After successful deletion, update the fileList state to re-render the list without the deleted file
-      setFileList((prevFileList: any[]) => prevFileList.filter(file => file._id !== fileId));
+      setFileList(prevFileList => prevFileList.filter(file => file._id !== fileId));
       
       // Add a confirmation or alert message to the user after successful deletion
       alert('File deleted successfully');
