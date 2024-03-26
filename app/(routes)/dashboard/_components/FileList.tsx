@@ -30,7 +30,6 @@ function FileList() {
   const [fileList,setFileList]=useState<any>();
   const {user}:any=useKindeBrowserClient();
   const router=useRouter();
-  const fileList = File.filter((li: { _id: any; }) => li._id !==id) 
   useEffect(()=>{
     fileList_&&setFileList(fileList_);
     console.log(fileList_);
@@ -74,17 +73,17 @@ function FileList() {
         </td>
         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
          
-          <DropdownMenu>
-  <DropdownMenuTrigger>
-  <MoreHorizontal/>
-  </DropdownMenuTrigger>
+        <DropdownMenu>
+  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
   <DropdownMenuContent>
-   
+    <DropdownMenuLabel></DropdownMenuLabel>
+    <DropdownMenuSeparator />
     <DropdownMenuItem className='gap-3'>
        <Archive className='h-4 w-4'/> Archive</DropdownMenuItem>
-       <Delete className='h-4 w-4'/> Delete</DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <DropdownMenuItem className='gap-3'>
+       <Delete className='h-4 w-4'/>Delete</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
 
         </td>
       </tr>
