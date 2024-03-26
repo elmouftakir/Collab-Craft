@@ -12,6 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import { api } from '@/convex/_generated/api';
 
 export interface FILE {
   archive: boolean;
@@ -34,11 +36,23 @@ function FileList() {
     fileList_ && setFileList(fileList_);
   }, [fileList_]);
 
-  function handleDelete(DeleteFile: { _id: any }) {
-    const updatedFileList = fileList.filter((item: { _id: any }) => item._id !== DeleteFile._id);
-    setFileList(updatedFileList);
-    // Here you may want to perform any additional action, such as deleting the file from the server.
-  }
+
+
+function handleDelete(DeleteFile: { _id: any }) {
+  // Send a request to your backend API to delete the file
+  axios.delete(`/api/files/${DeleteFile._id}`)
+      .then((res) => {
+      // Handle success, update the fileList state or perform any other action
+      console.log('File deleted successfully');
+      const updatedFileList = fileList.filter((item: { _id: any }) => item._id !== DeleteFile._id);
+      setFileList(updatedFileList);
+    })
+    .catch((error: any) => {
+      // Handle error
+      console.error('Error deleting file:', error);
+    });
+}
+
 
   return (
     <div className='mt-10'>
@@ -68,10 +82,10 @@ function FileList() {
                     <DropdownMenuTrigger>Open</DropdownMenuTrigger>
                     <DropdownMenuContent>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem className='gap-3'>
+                      <DropdownMenuItem className='gap-3' onClick={() => handleDelete(file)}>
                         <Archive className='h-4 w-4' /> Archive
                       </DropdownMenuItem>
-                      <DropdownMenuItem className='gap-3'>
+                      <DropdownMenuItem className='gap-3' onClick={() => handleDelete(file)}>
                         <Delete className='h-4 w-4' /> Delete
                       </DropdownMenuItem>
                     </DropdownMenuContent>
