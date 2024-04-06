@@ -1,17 +1,18 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { authMiddleware } from "@clerk/nextjs";
  
-// This function can be marked `async` if using `await` inside
-export async function middleware(request: NextRequest) {
-    const { isAuthenticated } = getKindeServerSession();
-    if(!await isAuthenticated())
-    {
-      return NextResponse.redirect(new URL('/api/auth/login?post_login_redirect_url=/dashboard', request.url))
-    }
-}
+// See https://clerk.com/docs/references/nextjs/auth-middleware
+// for more information about configuring your Middleware
+export default authMiddleware({
+  // Allow signed out users to access the specified routes:
+  // publicRoutes: ['/anyone-can-visit-this-route'],
+});
  
-// See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/dashboard'],
-}
+  matcher: [
+    // Exclude files with a "." followed by an extension, which are typically static files.
+    // Exclude files in the _next directory, which are Next.js internals.
+    "/((?!.+\\.[\\w]+$|_next).*)",
+    // Re-include any files in the api or trpc folders that might have an extension
+    "/(api|trpc)(.*)"
+  ]
+};
