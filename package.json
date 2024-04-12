@@ -36,6 +36,7 @@
     "next": "13.4.12",
     "postcss": "8.4.38",
     "react": "18.2.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.51.2",
@@ -46,7 +47,8 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.4.4",
     "uploadthing": "^6.8.0",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
