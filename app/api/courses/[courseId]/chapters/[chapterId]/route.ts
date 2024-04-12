@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
-import { Video } from "@mux/mux-node/resources/index.mjs";
+
 
 const { video } = new Mux({
   tokenId: process.env.MUX_TOKEN_ID,
@@ -142,7 +142,7 @@ export async function PATCH(
 
       const asset = await video.assets.create({
         input: values.videoUrl,
-        playback_policy: [ "public" ],
+        playback_policy: ["public"],
         test: false,
       });
 
